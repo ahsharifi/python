@@ -16,14 +16,18 @@ print("=============================")
 
 # get number from user
 number = int(input("Enter your number: "))
+
+if number < 0:
+  print("Factorial is not defined for negative numbers.")
+else:
 # user entered number
-factorial = number
+  factorial = number
 
-# find factorial of number
-for i in range(1, number):
-  factorial *= (number - i)
+  # find factorial of number
+  for i in range(1, number):
+    factorial *= (number - i)
 
-print(factorial)
+  print(factorial)
 
 print("=============================")
 
