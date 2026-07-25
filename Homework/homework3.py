@@ -16,14 +16,18 @@ print("=============================")
 
 # get number from user
 number = int(input("Enter your number: "))
+
+if number < 0:
+  print("Factorial is not defined for negative numbers.")
+else:
 # user entered number
-factorial = number
+  factorial = number
 
-# find factorial of number
-for i in range(1, number):
-  factorial *= (number - i)
+  # find factorial of number
+  for i in range(1, number):
+    factorial *= (number - i)
 
-print(factorial)
+  print(factorial)
 
 print("=============================")
 
@@ -32,18 +36,22 @@ print("=============================")
 # get number of fibonachies from user
 fibonachi_numbers = int(input("Enter number of fibonachi numbers: "))
 
-# set starter numbers [0, 1]
-old_num = 0
-new_num = 1
+if fibonachi_numbers <= 0:
+  print("Please enter a positive integer.")
+else:
 
-# find fibonachies
-for i in range(fibonachi_numbers):
-  print(old_num)
+  # set starter numbers [0, 1]
+  old_num = 0
+  new_num = 1
 
-  # set new values in 2 types:
-  # 1)
-  # temp = old_num
-  # old_num = new_num
-  # new_num = old_num + new_num
-  # 2)
-  old_num, new_num = new_num, old_num + new_num
+  # find fibonachies
+  for i in range(fibonachi_numbers):
+    print(old_num)
+
+    # set new values in 2 types:
+    # 1)
+    # temp = old_num
+    # old_num = new_num
+    # new_num = old_num + new_num
+    # 2)
+    old_num, new_num = new_num, old_num + new_num
