@@ -52,6 +52,6 @@ else:
     # 1)
     # temp = old_num
     # old_num = new_num
-    # new_num = old_num + new_num
+    # new_num = temp + new_num
     # 2)
     old_num, new_num = new_num, old_num + new_num
