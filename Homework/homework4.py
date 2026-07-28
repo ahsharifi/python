@@ -16,5 +16,14 @@ user_data = {
   "age": 18,
   "city": "Tabriz",
   "major": "Mathematics",
+  "school": "Meraj Andisheh",
   "is_admin": True
 }
+
+# [===============| Show Informations |===============]
+
+# get keys and values from dictionary
+for key, value in user_data.items():
+  # condition to show only major and school
+  if key == "major" or key == "school":
+    print(f"{key.capitalize()}: {value}")
