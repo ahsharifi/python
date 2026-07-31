@@ -51,7 +51,7 @@ This is a project to understand variables, input, types, operators and little bi
 
 ---
 
-## 4) Project 2
+## 4) Project 4
 
 ### Information:
 
@@ -65,5 +65,23 @@ This is a project to understand variables, input, types, operators and little bi
 - Add 4 List, Tuple, Set and Dictionary.
 - get major and school name from user data
 - print 15 methods
+
+---
+
+## 5) Project 5
+
+### Information:
+
+- name: **Calculator**
+- path: `./Homework/homework5.py`
+- description: Simple calculator.
+- type: HOMEWORK
+
+### What does this project do?
+
+- Jam
+- Tafrigh
+- Zarb
+- Taghsim
 
 ---
