@@ -16,9 +16,24 @@ def taghsim(num1: float = 0, num2: float = 0):
     return "Error: Division by zero"
   return num1 / num2
 
-number1 = float(input("Enter the first number: "))
-number2 = float(input("Enter the second number: "))
+# check if input is a number
+def is_number(num: str):
+  try:
+    float(num)
+    return True
+  except ValueError:
+    return False
 
+# get numbers from user
+number1 = input("Enter the first number: ").replace(",", ".")
+number2 = input("Enter the second number: ").replace(",", ".")
+
+# condition to check if the inputs are valid numbers
+if not is_number(number1) or not is_number(number2):
+  print("\033[91mInvalid input: Please enter valid numbers\033[0m")
+  exit()
+
+# list of operations
 print("""\033[93m
 Select operation:
 |--1. Jam
@@ -28,8 +43,10 @@ Select operation:
 \033[0m  
 """)
 
+# get operation choice from user
 choice = input("Enter choice (1/2/3/4): ")
 
+# show result
 match choice:
   case "1":
     result = jam(number1, number2)
