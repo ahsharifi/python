@@ -46,3 +46,17 @@ def search(list, name):
 [=======================================]
       {COLORS["reset"]}""")
       break
+
+# remove student
+def remove(list, name):
+  # confirmation to remove
+  confirm = input(f"Are you sure you want to remove {name}? (y/n)")
+
+  # check confirmation
+  if confirm == "y" or "":
+    for student in list:
+      if student["name"] == name:
+        list.remove(student)
+        print(f"{COLORS["red"]}{name} removed.")
+  else:
+    pass

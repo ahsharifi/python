@@ -69,7 +69,14 @@ while True:
             venus.search(students, student_name)
 
         case "4":
-            pass
+            print("|===| Remove Student |===|")
+            
+            # get student name
+            student_name = input("Enter student name: ")
+            
+            # remove student
+            venus.remove(students, student_name)
+
         case "5":
             pass
 
