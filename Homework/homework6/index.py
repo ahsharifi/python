@@ -1,3 +1,5 @@
+import venus
+
 # students list
 students = []
 
@@ -20,21 +22,51 @@ menu()
 # get user choice
 choice = input("Enter your method number: ")
 
-# conditions for user choice
-match choice:
-  case "1":
-    breakpoint
-  case "2":
-    breakpoint
-  case "3":
-    breakpoint
-  case "4":
-    breakpoint
-  case "5":
-    breakpoint
-  case "6":
-    breakpoint
-  case _:
-    print("Please enter valid method number.")
-    menu()
-    choice = input("Enter your method number: ")
+# check age
+def is_num(num: str):
+  try:
+    int(num)
+    return True
+  except:
+    return False
+
+while True:
+  # show menu and input after case
+  menu()
+  choice = input("Enter your method number: ")
+
+  # conditions for user choice
+  match choice:
+    case "1":
+        print("|===| Enter New Student Information |===|")
+
+        # get new student name and age
+        student_name = input("Enter new student name: ")
+        student_age = input("Enter new student age: ")
+        
+        # validate age
+        if not is_num(student_age):
+            print("Please enter valid age.")
+        # check age
+        elif int(student_age) <= 0:
+            print("Please enter valid age.")
+        else:
+            venus.add(students, student_name, int(student_age))
+
+    case "2":
+        pass
+    case "3":
+        pass
+
+    case "4":
+        pass
+
+    case "5":
+        pass
+
+    case "6":
+        print("Goodbye!")
+        break
+
+    case _:
+        print("Please enter valid method number.")
