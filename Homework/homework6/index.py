@@ -78,7 +78,10 @@ while True:
             venus.remove(students, student_name)
 
         case "5":
-            pass
+            print("|===| Numbers Of Students |===|")
+
+            # show numbers of students
+            venus.length(students)  
 
         case "6":
             print("Goodbye!")

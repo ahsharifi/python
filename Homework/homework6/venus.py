@@ -58,5 +58,7 @@ def remove(list, name):
       if student["name"] == name:
         list.remove(student)
         print(f"{COLORS["red"]}{name} removed.")
-  else:
-    pass
+
+# numbers of students
+def length(list):
+  print(f"numbers of students: {len(list)}")
