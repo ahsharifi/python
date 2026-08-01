@@ -5,7 +5,7 @@ students = []
 
 # function to show menu
 def menu():
-  print("""
+  print(f"""{venus.COLORS["yellow"]}
 [============| METHODS |============]
 |--| 1. Add student |---------------|
 |--| 2. Show student |--------------|
@@ -14,7 +14,7 @@ def menu():
 |--| 5. Show number of students |---|
 |--| 6. Exit the app |--------------|
 [===================================]
-  """)
+  {venus.COLORS["reset"]}""")
 
 # check age
 def is_num(num: str):
@@ -54,14 +54,22 @@ while True:
               )
 
         case "2":
+          print("|===| Students List |===|")
+
+          # show students list
           venus.show(students)
 
         case "3":
-            pass
+            print("|===| Search Student |===|")
+
+            # get student name
+            student_name = input("Enter student name: ")
+
+            # show student information
+            venus.search(students, student_name)
 
         case "4":
             pass
-
         case "5":
             pass
 

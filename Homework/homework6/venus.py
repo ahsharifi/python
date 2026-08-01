@@ -33,3 +33,16 @@ def show(list):
 |---| Student age: {student["age"]}
 [==========================]
     {COLORS["reset"]}""")
+
+# search student
+def search(list, name):
+  # find user
+  for student in list:
+    if student["name"] == name:
+      print(f"""{COLORS["cyan"]}
+[=========| User Informations |=========]
+|---| name: {student["name"]}
+|---| age: {student["age"]}
+[=======================================]
+      {COLORS["reset"]}""")
+      break
