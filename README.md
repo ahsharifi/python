@@ -85,3 +85,25 @@ This is a project to understand variables, input, types, operators and little bi
 - Taghsim
 
 ---
+
+## 6) Project 6
+
+### Information:
+
+- name: **Students Management**
+- path: `./Homework/homework6/index.py`
+- description: Project for manage students.
+- type: HOMEWORK
+
+### What does this project do?
+
+This project is for manage students and using module in python.
+
+1. add student
+2. show student
+3. search student
+4. remove student
+5. numbers of students
+6. exit app
+
+---
