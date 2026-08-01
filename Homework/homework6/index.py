@@ -27,15 +27,15 @@ def is_num(num: str):
 while True:
     # show menu and input after case
     menu()
-    choice = input("Enter your method number: ").strip()
+    choice = input(f"{venus.COLORS["blue"]}Enter your method number: {venus.COLORS["reset"]}").strip()
 
     # conditions for user choice
     match choice:
         case "1":
-          print("|===| Enter New Student Information |===|")
+          print(f"{venus.COLORS["gray"]}\n|===| Enter New Student Information |===|{venus.COLORS["reset"]}")
 
           # get new student name and age
-          student_name = input("Enter new student name: ")
+          student_name = input("Enter new student name: ").capitalize()
           student_age = input("Enter new student age: ")
 
           # validate age
@@ -54,38 +54,38 @@ while True:
               )
 
         case "2":
-          print("|===| Students List |===|")
+          print(f"{venus.COLORS["gray"]}\n|===| Students List |===|{venus.COLORS["reset"]}")
 
           # show students list
           venus.show(students)
 
         case "3":
-            print("|===| Search Student |===|")
+            print(f"{venus.COLORS["gray"]}\n|===| Search Student |===|{venus.COLORS["reset"]}")
 
             # get student name
-            student_name = input("Enter student name: ")
+            student_name = input("Enter student name: ").capitalize()
 
             # show student information
             venus.search(students, student_name)
 
         case "4":
-            print("|===| Remove Student |===|")
+            print(f"{venus.COLORS["gray"]}\n|===| Remove Student |===|{venus.COLORS["reset"]}")
             
             # get student name
-            student_name = input("Enter student name: ")
+            student_name = input("Enter student name: ").capitalize()
             
             # remove student
             venus.remove(students, student_name)
 
         case "5":
-            print("|===| Numbers Of Students |===|")
+            print(f"{venus.COLORS["gray"]}\n|===| Numbers Of Students |===|{venus.COLORS["reset"]}")
 
             # show numbers of students
             venus.length(students)  
 
         case "6":
-            print(f"{venus.COLORS["pink"]}Goodbye!{venus.COLORS["reset"]}")
+            print(f"{venus.COLORS["pink"]}\nGoodbye!{venus.COLORS["reset"]}")
             break
 
         case _:
-            print(f"{venus.COLORS["red"]}Please enter valid method number.{venus.COLORS["reset"]}")
+            print(f"{venus.COLORS["red"]}\nPlease enter valid method number.{venus.COLORS["reset"]}")

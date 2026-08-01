@@ -61,4 +61,4 @@ def remove(list, name):
 
 # numbers of students
 def length(list):
-  print(f"numbers of students: {len(list)}")
+  print(f"{COLORS["cyan"]}numbers of students: {len(list)}{COLORS["reset"]}")
