@@ -16,12 +16,6 @@ def menu():
 [===================================]
   """)
 
-# show menu
-menu()
-
-# get user choice
-choice = input("Enter your method number: ")
-
 # check age
 def is_num(num: str):
   try:
@@ -31,42 +25,49 @@ def is_num(num: str):
     return False
 
 while True:
-  # show menu and input after case
-  menu()
-  choice = input("Enter your method number: ")
+    # show menu and input after case
+    menu()
+    choice = input("Enter your method number: ").strip()
 
-  # conditions for user choice
-  match choice:
-    case "1":
-        print("|===| Enter New Student Information |===|")
+    # conditions for user choice
+    match choice:
+        case "1":
+          print("|===| Enter New Student Information |===|")
 
-        # get new student name and age
-        student_name = input("Enter new student name: ")
-        student_age = input("Enter new student age: ")
-        
-        # validate age
-        if not is_num(student_age):
-            print("Please enter valid age.")
-        # check age
-        elif int(student_age) <= 0:
-            print("Please enter valid age.")
-        else:
-            venus.add(students, student_name, int(student_age))
+          # get new student name and age
+          student_name = input("Enter new student name: ")
+          student_age = input("Enter new student age: ")
 
-    case "2":
-        pass
-    case "3":
-        pass
+          # validate age
+          if not is_num(student_age):
+              print("Please enter valid age.")
 
-    case "4":
-        pass
+          # check age
+          elif int(student_age) <= 0:
+              print("Please enter valid age.")
 
-    case "5":
-        pass
+          else:
+              venus.add(
+                  students,
+                  student_name,
+                  int(student_age)
+              )
 
-    case "6":
-        print("Goodbye!")
-        break
+        case "2":
+          venus.show(students)
 
-    case _:
-        print("Please enter valid method number.")
+        case "3":
+            pass
+
+        case "4":
+            pass
+
+        case "5":
+            pass
+
+        case "6":
+            print("Goodbye!")
+            break
+
+        case _:
+            print("Please enter valid method number.")
