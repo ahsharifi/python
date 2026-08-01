@@ -84,8 +84,8 @@ while True:
             venus.length(students)  
 
         case "6":
-            print("Goodbye!")
+            print(f"{venus.COLORS["pink"]}Goodbye!{venus.COLORS["reset"]}")
             break
 
         case _:
-            print("Please enter valid method number.")
+            print(f"{venus.COLORS["red"]}Please enter valid method number.{venus.COLORS["reset"]}")
