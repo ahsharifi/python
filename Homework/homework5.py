@@ -49,16 +49,16 @@ choice = input("Enter choice (1/2/3/4): ")
 # show result
 match choice:
   case "1":
-    result = jam(number1, number2)
+    result = jam(float(number1), float(number2))
     print(f"\033[92mResult: {result}\033[0m")
   case "2":
-    result = tafrigh(number1, number2)
+    result = tafrigh(float(number1), float(number2))
     print(f"\033[92mResult: {result}\033[0m")
   case "3":
-    result = zarb(number1, number2)
+    result = zarb(float(number1), float(number2))
     print(f"\033[92mResult: {result}\033[0m")
   case "4":
-    result = taghsim(number1, number2)
+    result = taghsim(float(number1), float(number2))
     print(f"\033[92mResult: {result}\033[0m")
   case _:
     print("\033[91mInvalid input\033[0m")
