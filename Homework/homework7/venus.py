@@ -1,3 +1,5 @@
+import re
+
 COLORS = {
     "red": "\033[91m",
     "green": "\033[92m",
@@ -14,14 +16,41 @@ COLORS = {
     "reset": "\033[0m"
 }
 
-# add new student
-def add(name, age):
-  student_info_dic = {
-    "name": name,
-    "age": age
-  }
+# create students file
+def createFile(name: str = "students"):
+  file = open(f"{name}.txt", "x")
 
-  list.append(student_info_dic)
+# read file
+def readFile(name: str = "students"):
+  return open(f"{name}.txt", "r")
+
+# write file
+def appendFile(name: str = "students"):
+  return open(f"{name}.txt", "a")
+
+# define next id
+def getNextId(file_name: str = "students"):
+  try:
+    with readFile(file_name) as file:
+      lines = file.readlines()
+      if lines:
+        last_line = lines[-1]
+        last_id = re.search("ID: (\d+)", last_line)
+        
+        if last_id:
+          return int(last_id.group(1)) + 1
+  except:
+    pass
+
+  return 1
+
+# add new student
+def add(file_name, name, age):
+  ID = getNextId(file_name)
+  file = appendFile(file_name)
+  with file as f:
+    f.write(f"ID: {ID} | Name: {name} | Age: {age}\n") 
+  
   print(f"{COLORS["green"]}Student added seccussfuly{COLORS["reset"]}")
 
 # # show students

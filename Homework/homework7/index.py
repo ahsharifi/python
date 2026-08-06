@@ -20,6 +20,14 @@ def is_num(num: str):
     return True
   except:
     return False
+  
+__FileName__ = "students"
+
+# create file
+try:
+   venus.createFile(__FileName__)
+except:
+   pass
 
 while True:
     # show menu and input after case
@@ -36,17 +44,14 @@ while True:
           student_age = input("Enter new student age: ")
 
           # validate age
-          if not is_num(student_age):
-              print("Please enter valid age.")
-
-          # check age
-          elif int(student_age) <= 0:
+          if not is_num(student_age) or int(student_age) <= 0:
               print("Please enter valid age.")
 
           else:
               venus.add(
-                  student_name,
-                  int(student_age)
+                __FileName__,
+                student_name,
+                int(student_age)
               )
 
         # case "2":
