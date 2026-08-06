@@ -78,11 +78,11 @@ while True:
             # remove student
             venus.remove(__FileName__, student_ID)
 
-        # case "5":
-        #     print(f"{venus.COLORS["gray"]}\n|===| Numbers Of Students |===|{venus.COLORS["reset"]}")
+        case "5":
+            print(f"{venus.COLORS["gray"]}\n|===| Numbers Of Students |===|{venus.COLORS["reset"]}")
 
-        #     # show numbers of students
-        #     venus.length()  
+            # show numbers of students
+            venus.length(__FileName__)  
 
         case "6":
             print(f"{venus.COLORS["pink"]}\nGoodbye!{venus.COLORS["reset"]}")

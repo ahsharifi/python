@@ -125,7 +125,10 @@ def remove(file_name, ID):
 
   else:
     print(f"{COLORS["red"]}Operation cancelled.{COLORS["reset"]}")
-    
-# # numbers of students
-# def length():
-#   print(f"{COLORS["cyan"]}numbers of students: {len(list)}{COLORS["reset"]}")
+
+# numbers of students
+def length(file_name):
+  with readFile(file_name) as file:
+    rows = len(file.readlines())
+
+  print(f"{COLORS["cyan"]}numbers of students: {rows}{COLORS["reset"]}")
