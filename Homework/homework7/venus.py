@@ -28,6 +28,9 @@ def readFile(name: str = "students"):
 def appendFile(name: str = "students"):
   return open(f"{name}.txt", "a")
 
+def writeFile(name: str = "students"):
+  return open(f"{name}.txt", "w")
+
 # define next id
 def getNextId(file_name: str = "students"):
   try:
@@ -55,8 +58,7 @@ def add(file_name, name, age):
 
 # show students
 def show(file_name):
-  file = readFile(file_name)
-  with file as f:
+  with readFile(file_name) as f:
     for line in f:
       student_id = re.search(r"ID: (\d+)", line).group(1)
       student_name  = re.search(r"Name: ([^|]+)", line).group(1).strip()
@@ -72,8 +74,7 @@ def show(file_name):
 
 # search student
 def search(file_name, ID):
-  file = readFile(file_name)
-  with file as f:
+  with readFile(file_name) as f:
     for line in f:
       student_ID = re.search(r"ID: (\d+)", line).group(1)
       if student_ID == ID:
@@ -88,18 +89,43 @@ def search(file_name, ID):
     {COLORS["reset"]}"""
         )
 
-# # remove student
-# def remove(name):
-#   # confirmation to remove
-#   confirm = input(f"Are you sure you want to remove {name}? (y/n)")
+# remove student
+def remove(file_name, ID):
+  # confirmation to remove
+  confirm = input(f"Are you sure you want to remove id:{ID}? (y/n)")
 
-#   # check confirmation
-#   if confirm == "y" or "":
-#     for student in list:
-#       if student["name"] == name:
-#         list.remove(student)
-#         print(f"{COLORS["red"]}{name} removed.")
+  if confirm == "y" or confirm == "":
+    lines = []
+    found = False
 
+    try:
+      with readFile(file_name) as file:
+        lines = file.readlines()
+      
+      new_lines = []
+      for line in lines:
+        match = re.search(r"ID: (\d+)", line)
+
+        if match:
+          current_ID = match.group(1)
+          if current_ID == str(ID):
+            found = True
+            continue
+          
+        new_lines.append(line)
+
+      if found:
+        with writeFile(file_name) as f:
+          f.writelines(new_lines)
+        print(f"{COLORS['red']}Student with ID {ID} removed successfully.{COLORS['reset']}")
+      else:
+        print(f"{COLORS['yellow']}Student with ID {ID} not found.{COLORS['reset']}")
+    except:
+      print(f"{COLORS['red']}Error: File not found.{COLORS['reset']}")
+
+  else:
+    print(f"{COLORS["red"]}Operation cancelled.{COLORS["reset"]}")
+    
 # # numbers of students
 # def length():
 #   print(f"{COLORS["cyan"]}numbers of students: {len(list)}{COLORS["reset"]}")

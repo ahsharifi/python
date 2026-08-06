@@ -69,14 +69,14 @@ while True:
             # show student information
             venus.search(__FileName__, student_ID)
 
-        # case "4":
-        #     print(f"{venus.COLORS["gray"]}\n|===| Remove Student |===|{venus.COLORS["reset"]}")
+        case "4":
+            print(f"{venus.COLORS["gray"]}\n|===| Remove Student |===|{venus.COLORS["reset"]}")
             
-        #     # get student name
-        #     student_name = input("Enter student name: ").capitalize()
+            # get student name
+            student_ID = input("Enter student ID: ")
             
-        #     # remove student
-        #     venus.remove(student_name)
+            # remove student
+            venus.remove(__FileName__, student_ID)
 
         # case "5":
         #     print(f"{venus.COLORS["gray"]}\n|===| Numbers Of Students |===|{venus.COLORS["reset"]}")
