@@ -54,20 +54,20 @@ while True:
                 int(student_age)
               )
 
-        # case "2":
-        #   print(f"{venus.COLORS["gray"]}\n|===| Students List |===|{venus.COLORS["reset"]}")
+        case "2":
+          print(f"{venus.COLORS["gray"]}\n|===| Students List |===|{venus.COLORS["reset"]}")
 
-        #   # show students list
-        #   venus.show()
+          # show students list
+          venus.show(__FileName__)
 
-        # case "3":
-        #     print(f"{venus.COLORS["gray"]}\n|===| Search Student |===|{venus.COLORS["reset"]}")
+        case "3":
+            print(f"{venus.COLORS["gray"]}\n|===| Search Student |===|{venus.COLORS["reset"]}")
 
-        #     # get student name
-        #     student_name = input("Enter student name: ").capitalize()
+            # get student name
+            student_ID = input("Enter student ID: ")
 
-        #     # show student information
-        #     venus.search(student_name)
+            # show student information
+            venus.search(__FileName__, student_ID)
 
         # case "4":
         #     print(f"{venus.COLORS["gray"]}\n|===| Remove Student |===|{venus.COLORS["reset"]}")

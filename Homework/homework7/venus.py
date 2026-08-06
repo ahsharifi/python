@@ -35,7 +35,7 @@ def getNextId(file_name: str = "students"):
       lines = file.readlines()
       if lines:
         last_line = lines[-1]
-        last_id = re.search("ID: (\d+)", last_line)
+        last_id = re.search(r"ID: (\d+)", last_line)
         
         if last_id:
           return int(last_id.group(1)) + 1
@@ -53,28 +53,40 @@ def add(file_name, name, age):
   
   print(f"{COLORS["green"]}Student added seccussfuly{COLORS["reset"]}")
 
-# # show students
-# def show():
-#   for student in list:
-#     print(f"""{COLORS["cyan"]}
-# [==========| student {list.index(student) + 1} |==========]
-# |---| Student name: {student["name"]}      
-# |---| Student age: {student["age"]}
-# [==========================]
-#     {COLORS["reset"]}""")
+# show students
+def show(file_name):
+  file = readFile(file_name)
+  with file as f:
+    for line in f:
+      student_id = re.search(r"ID: (\d+)", line).group(1)
+      student_name  = re.search(r"Name: ([^|]+)", line).group(1).strip()
+      student_age = re.search(r"Age: (\d+)", line).group(1)
 
-# # search student
-# def search(name):
-#   # find user
-#   for student in list:
-#     if student["name"] == name:
-#       print(f"""{COLORS["cyan"]}
-# [=========| User Informations |=========]
-# |---| name: {student["name"]}
-# |---| age: {student["age"]}
-# [=======================================]
-#       {COLORS["reset"]}""")
-#       break
+      print(f"""{COLORS["cyan"]}
+[==========| student {student_id} |==========]
+|---| Student name: {student_name}      
+|---| Student age: {student_age}
+[==========================]
+    {COLORS["reset"]}"""
+      )
+
+# search student
+def search(file_name, ID):
+  file = readFile(file_name)
+  with file as f:
+    for line in f:
+      student_ID = re.search(r"ID: (\d+)", line).group(1)
+      if student_ID == ID:
+        student_name = re.search(r"Name: ([^|]+)", line).group(1)
+        student_age = re.search(r"Age: (\d+)", line).group(1)
+
+        print(f"""{COLORS["cyan"]}
+[==========| student {student_ID} |==========]
+|---| Student name: {student_name}      
+|---| Student age: {student_age}
+[==========================]
+    {COLORS["reset"]}"""
+        )
 
 # # remove student
 # def remove(name):
