@@ -1,8 +1,5 @@
 import venus
 
-# students list
-students = []
-
 # function to show menu
 def menu():
   print(f"""{venus.COLORS["yellow"]}
@@ -48,40 +45,39 @@ while True:
 
           else:
               venus.add(
-                  students,
                   student_name,
                   int(student_age)
               )
 
-        case "2":
-          print(f"{venus.COLORS["gray"]}\n|===| Students List |===|{venus.COLORS["reset"]}")
+        # case "2":
+        #   print(f"{venus.COLORS["gray"]}\n|===| Students List |===|{venus.COLORS["reset"]}")
 
-          # show students list
-          venus.show(students)
+        #   # show students list
+        #   venus.show()
 
-        case "3":
-            print(f"{venus.COLORS["gray"]}\n|===| Search Student |===|{venus.COLORS["reset"]}")
+        # case "3":
+        #     print(f"{venus.COLORS["gray"]}\n|===| Search Student |===|{venus.COLORS["reset"]}")
 
-            # get student name
-            student_name = input("Enter student name: ").capitalize()
+        #     # get student name
+        #     student_name = input("Enter student name: ").capitalize()
 
-            # show student information
-            venus.search(students, student_name)
+        #     # show student information
+        #     venus.search(student_name)
 
-        case "4":
-            print(f"{venus.COLORS["gray"]}\n|===| Remove Student |===|{venus.COLORS["reset"]}")
+        # case "4":
+        #     print(f"{venus.COLORS["gray"]}\n|===| Remove Student |===|{venus.COLORS["reset"]}")
             
-            # get student name
-            student_name = input("Enter student name: ").capitalize()
+        #     # get student name
+        #     student_name = input("Enter student name: ").capitalize()
             
-            # remove student
-            venus.remove(students, student_name)
+        #     # remove student
+        #     venus.remove(student_name)
 
-        case "5":
-            print(f"{venus.COLORS["gray"]}\n|===| Numbers Of Students |===|{venus.COLORS["reset"]}")
+        # case "5":
+        #     print(f"{venus.COLORS["gray"]}\n|===| Numbers Of Students |===|{venus.COLORS["reset"]}")
 
-            # show numbers of students
-            venus.length(students)  
+        #     # show numbers of students
+        #     venus.length()  
 
         case "6":
             print(f"{venus.COLORS["pink"]}\nGoodbye!{venus.COLORS["reset"]}")

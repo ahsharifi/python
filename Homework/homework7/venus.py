@@ -15,7 +15,7 @@ COLORS = {
 }
 
 # add new student
-def add(list, name, age):
+def add(name, age):
   student_info_dic = {
     "name": name,
     "age": age
@@ -24,41 +24,41 @@ def add(list, name, age):
   list.append(student_info_dic)
   print(f"{COLORS["green"]}Student added seccussfuly{COLORS["reset"]}")
 
-# show students
-def show(list):
-  for student in list:
-    print(f"""{COLORS["cyan"]}
-[==========| student {list.index(student) + 1} |==========]
-|---| Student name: {student["name"]}      
-|---| Student age: {student["age"]}
-[==========================]
-    {COLORS["reset"]}""")
+# # show students
+# def show():
+#   for student in list:
+#     print(f"""{COLORS["cyan"]}
+# [==========| student {list.index(student) + 1} |==========]
+# |---| Student name: {student["name"]}      
+# |---| Student age: {student["age"]}
+# [==========================]
+#     {COLORS["reset"]}""")
 
-# search student
-def search(list, name):
-  # find user
-  for student in list:
-    if student["name"] == name:
-      print(f"""{COLORS["cyan"]}
-[=========| User Informations |=========]
-|---| name: {student["name"]}
-|---| age: {student["age"]}
-[=======================================]
-      {COLORS["reset"]}""")
-      break
+# # search student
+# def search(name):
+#   # find user
+#   for student in list:
+#     if student["name"] == name:
+#       print(f"""{COLORS["cyan"]}
+# [=========| User Informations |=========]
+# |---| name: {student["name"]}
+# |---| age: {student["age"]}
+# [=======================================]
+#       {COLORS["reset"]}""")
+#       break
 
-# remove student
-def remove(list, name):
-  # confirmation to remove
-  confirm = input(f"Are you sure you want to remove {name}? (y/n)")
+# # remove student
+# def remove(name):
+#   # confirmation to remove
+#   confirm = input(f"Are you sure you want to remove {name}? (y/n)")
 
-  # check confirmation
-  if confirm == "y" or "":
-    for student in list:
-      if student["name"] == name:
-        list.remove(student)
-        print(f"{COLORS["red"]}{name} removed.")
+#   # check confirmation
+#   if confirm == "y" or "":
+#     for student in list:
+#       if student["name"] == name:
+#         list.remove(student)
+#         print(f"{COLORS["red"]}{name} removed.")
 
-# numbers of students
-def length(list):
-  print(f"{COLORS["cyan"]}numbers of students: {len(list)}{COLORS["reset"]}")
+# # numbers of students
+# def length():
+#   print(f"{COLORS["cyan"]}numbers of students: {len(list)}{COLORS["reset"]}")
