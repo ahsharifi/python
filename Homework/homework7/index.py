@@ -1,8 +1,5 @@
 import venus
 
-# students list
-students = []
-
 # function to show menu
 def menu():
   print(f"""{venus.COLORS["yellow"]}
@@ -23,6 +20,14 @@ def is_num(num: str):
     return True
   except:
     return False
+  
+__FileName__ = "students"
+
+# create file
+try:
+   venus.createFile(__FileName__)
+except:
+   pass
 
 while True:
     # show menu and input after case
@@ -39,49 +44,45 @@ while True:
           student_age = input("Enter new student age: ")
 
           # validate age
-          if not is_num(student_age):
-              print("Please enter valid age.")
-
-          # check age
-          elif int(student_age) <= 0:
+          if not is_num(student_age) or int(student_age) <= 0:
               print("Please enter valid age.")
 
           else:
               venus.add(
-                  students,
-                  student_name,
-                  int(student_age)
+                __FileName__,
+                student_name,
+                int(student_age)
               )
 
         case "2":
           print(f"{venus.COLORS["gray"]}\n|===| Students List |===|{venus.COLORS["reset"]}")
 
           # show students list
-          venus.show(students)
+          venus.show(__FileName__)
 
         case "3":
             print(f"{venus.COLORS["gray"]}\n|===| Search Student |===|{venus.COLORS["reset"]}")
 
             # get student name
-            student_name = input("Enter student name: ").capitalize()
+            student_ID = input("Enter student ID: ")
 
             # show student information
-            venus.search(students, student_name)
+            venus.search(__FileName__, student_ID)
 
         case "4":
             print(f"{venus.COLORS["gray"]}\n|===| Remove Student |===|{venus.COLORS["reset"]}")
             
             # get student name
-            student_name = input("Enter student name: ").capitalize()
+            student_ID = input("Enter student ID: ")
             
             # remove student
-            venus.remove(students, student_name)
+            venus.remove(__FileName__, student_ID)
 
         case "5":
             print(f"{venus.COLORS["gray"]}\n|===| Numbers Of Students |===|{venus.COLORS["reset"]}")
 
             # show numbers of students
-            venus.length(students)  
+            venus.length(__FileName__)  
 
         case "6":
             print(f"{venus.COLORS["pink"]}\nGoodbye!{venus.COLORS["reset"]}")
