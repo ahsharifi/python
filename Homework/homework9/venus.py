@@ -132,6 +132,12 @@ class Student(Person):
     else:
       print(f"{COLORS["red"]}Operation cancelled.{COLORS["reset"]}")
 
+  def count(self, file_name):
+    with readFile(file_name) as file:
+      rows = len(file.readlines())
+
+    print(f"{COLORS["cyan"]}numbers of students: {rows}{COLORS["reset"]}")
+
 
 
 # add new student
@@ -154,9 +160,7 @@ def remove(file_name, ID):
   students = Student("", 0)
   students.removeStudent(file_name, ID)
   
-# # numbers of students
-# def length(file_name):
-#   with readFile(file_name) as file:
-#     rows = len(file.readlines())
-
-#   print(f"{COLORS["cyan"]}numbers of students: {rows}{COLORS["reset"]}")
+# numbers of students
+def length(file_name):
+  students = Student("", 0)
+  students.count(file_name)
