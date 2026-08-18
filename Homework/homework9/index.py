@@ -48,17 +48,16 @@ while True:
               print("Please enter valid age.")
 
           else:
-              venus.add(
-                __FileName__,
-                student_name,
-                int(student_age)
-              )
+              # add student
+              student = venus.Student(student_name, int(student_age))
+              student.add(__FileName__)
 
         case "2":
           print(f"{venus.COLORS["gray"]}\n|===| Students List |===|{venus.COLORS["reset"]}")
 
           # show students list
-          venus.show(__FileName__)
+          students = venus.Student("", 0)
+          students.showStudents(__FileName__)
 
         case "3":
             print(f"{venus.COLORS["gray"]}\n|===| Search Student |===|{venus.COLORS["reset"]}")
@@ -66,8 +65,9 @@ while True:
             # get student name
             student_ID = input("Enter student ID: ")
 
-            # show student information
-            venus.search(__FileName__, student_ID)
+            # search student information
+            students = venus.Student("", 0)
+            students.searchStudent(__FileName__, student_ID)
 
         case "4":
             print(f"{venus.COLORS["gray"]}\n|===| Remove Student |===|{venus.COLORS["reset"]}")
@@ -76,13 +76,15 @@ while True:
             student_ID = input("Enter student ID: ")
             
             # remove student
-            venus.remove(__FileName__, student_ID)
+            students = venus.Student("", 0)
+            students.removeStudent(__FileName__, student_ID)
 
         case "5":
             print(f"{venus.COLORS["gray"]}\n|===| Numbers Of Students |===|{venus.COLORS["reset"]}")
 
             # show numbers of students
-            venus.length(__FileName__)  
+            students = venus.Student("", 0)
+            students.count(__FileName__)
 
         case "6":
             print(f"{venus.COLORS["pink"]}\nGoodbye!{venus.COLORS["reset"]}")
