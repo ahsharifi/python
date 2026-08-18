@@ -76,7 +76,8 @@ while True:
             student_ID = input("Enter student ID: ")
             
             # remove student
-            venus.remove(__FileName__, student_ID)
+            students = venus.Student("", 0)
+            students.removeStudent(__FileName__, student_ID)
 
         case "5":
             print(f"{venus.COLORS["gray"]}\n|===| Numbers Of Students |===|{venus.COLORS["reset"]}")
