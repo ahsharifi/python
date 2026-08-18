@@ -48,11 +48,9 @@ while True:
               print("Please enter valid age.")
 
           else:
-              venus.add(
-                __FileName__,
-                student_name,
-                int(student_age)
-              )
+              # add student
+              student = venus.Student(student_name, int(student_age))
+              student.add(__FileName__)
 
         case "2":
           print(f"{venus.COLORS["gray"]}\n|===| Students List |===|{venus.COLORS["reset"]}")

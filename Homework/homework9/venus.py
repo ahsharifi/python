@@ -138,13 +138,6 @@ class Student(Person):
 
     print(f"{COLORS["cyan"]}numbers of students: {rows}{COLORS["reset"]}")
 
-
-
-# add new student
-def add(file_name, name, age):
-  student = Student(name, age)
-  student.add(file_name)
-
 # show students
 def show(file_name):
   student = Student("", 0)
