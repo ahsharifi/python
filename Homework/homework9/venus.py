@@ -50,8 +50,9 @@ def getNextId(file_name: str = "students"):
 class Person:
   def __init__(self, name):
     self.name = name
+    
 
-class Student:
+class Student(Person):
   def __init__(self, name, age):
     Person.__init__(self, name)
     self.age = age
@@ -64,26 +65,30 @@ class Student:
     
     print(f"{COLORS["green"]}Student added seccussfuly{COLORS["reset"]}")
 
+  def showStudents(self, file_name):
+    with readFile(file_name) as f:
+      for line in f:
+        student_id = re.search(r"ID: (\d+)", line).group(1)
+        student_name  = re.search(r"Name: ([^|]+)", line).group(1).strip()
+        student_age = re.search(r"Age: (\d+)", line).group(1)
+
+        print(f"""{COLORS["cyan"]}
+[==========| student {student_id} |==========]
+|---| Student name: {student_name}      
+|---| Student age: {student_age}
+[==========================]
+    {COLORS["reset"]}"""
+        )
+
 # add new student
 def add(file_name, name, age):
   student = Student(name, age)
   student.add(file_name)
 
-# # show students
-# def show(file_name):
-#   with readFile(file_name) as f:
-#     for line in f:
-#       student_id = re.search(r"ID: (\d+)", line).group(1)
-#       student_name  = re.search(r"Name: ([^|]+)", line).group(1).strip()
-#       student_age = re.search(r"Age: (\d+)", line).group(1)
-
-#       print(f"""{COLORS["cyan"]}
-# [==========| student {student_id} |==========]
-# |---| Student name: {student_name}      
-# |---| Student age: {student_age}
-# [==========================]
-#     {COLORS["reset"]}"""
-#       )
+# show students
+def show(file_name):
+  student = Student("", 0)
+  student.showStudents(file_name)
 
 # # search student
 # def search(file_name, ID):

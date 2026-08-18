@@ -54,11 +54,11 @@ while True:
                 int(student_age)
               )
 
-        # case "2":
-        #   print(f"{venus.COLORS["gray"]}\n|===| Students List |===|{venus.COLORS["reset"]}")
+        case "2":
+          print(f"{venus.COLORS["gray"]}\n|===| Students List |===|{venus.COLORS["reset"]}")
 
-        #   # show students list
-        #   venus.show(__FileName__)
+          # show students list
+          venus.show(__FileName__)
 
         # case "3":
         #     print(f"{venus.COLORS["gray"]}\n|===| Search Student |===|{venus.COLORS["reset"]}")
