@@ -96,6 +96,43 @@ class Student(Person):
       {COLORS["reset"]}"""
           )
 
+  def removeStudent(self, file_name, ID):
+    # confirmation to remove
+    confirm = input(f"Are you sure you want to remove id:{ID}? (y/n)")
+
+    if confirm == "y" or confirm == "":
+      lines = []
+      found = False
+
+      try:
+        with readFile(file_name) as file:
+          lines = file.readlines()
+        
+        new_lines = []
+        for line in lines:
+          match = re.search(r"ID: (\d+)", line)
+
+          if match:
+            current_ID = match.group(1)
+            if current_ID == str(ID):
+              found = True
+              continue
+            
+          new_lines.append(line)
+
+        if found:
+          with writeFile(file_name) as f:
+            f.writelines(new_lines)
+          print(f"{COLORS['red']}Student with ID {ID} removed successfully.{COLORS['reset']}")
+        else:
+          print(f"{COLORS['yellow']}Student with ID {ID} not found.{COLORS['reset']}")
+      except:
+        print(f"{COLORS['red']}Error: File not found.{COLORS['reset']}")
+
+    else:
+      print(f"{COLORS["red"]}Operation cancelled.{COLORS["reset"]}")
+
+
 
 # add new student
 def add(file_name, name, age):
@@ -109,46 +146,14 @@ def show(file_name):
 
 # search student
 def search(file_name, ID):
-  student = Student("", 0)
-  student.searchStudent(file_name, ID)
+  students = Student("", 0)
+  students.searchStudent(file_name, ID)
 
-# # remove student
-# def remove(file_name, ID):
-#   # confirmation to remove
-#   confirm = input(f"Are you sure you want to remove id:{ID}? (y/n)")
-
-#   if confirm == "y" or confirm == "":
-#     lines = []
-#     found = False
-
-#     try:
-#       with readFile(file_name) as file:
-#         lines = file.readlines()
-      
-#       new_lines = []
-#       for line in lines:
-#         match = re.search(r"ID: (\d+)", line)
-
-#         if match:
-#           current_ID = match.group(1)
-#           if current_ID == str(ID):
-#             found = True
-#             continue
-          
-#         new_lines.append(line)
-
-#       if found:
-#         with writeFile(file_name) as f:
-#           f.writelines(new_lines)
-#         print(f"{COLORS['red']}Student with ID {ID} removed successfully.{COLORS['reset']}")
-#       else:
-#         print(f"{COLORS['yellow']}Student with ID {ID} not found.{COLORS['reset']}")
-#     except:
-#       print(f"{COLORS['red']}Error: File not found.{COLORS['reset']}")
-
-#   else:
-#     print(f"{COLORS["red"]}Operation cancelled.{COLORS["reset"]}")
-
+# remove student
+def remove(file_name, ID):
+  students = Student("", 0)
+  students.removeStudent(file_name, ID)
+  
 # # numbers of students
 # def length(file_name):
 #   with readFile(file_name) as file:
