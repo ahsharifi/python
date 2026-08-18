@@ -137,8 +137,3 @@ class Student(Person):
       rows = len(file.readlines())
 
     print(f"{COLORS["cyan"]}numbers of students: {rows}{COLORS["reset"]}")
-  
-# numbers of students
-def length(file_name):
-  students = Student("", 0)
-  students.count(file_name)

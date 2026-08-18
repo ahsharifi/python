@@ -83,7 +83,8 @@ while True:
             print(f"{venus.COLORS["gray"]}\n|===| Numbers Of Students |===|{venus.COLORS["reset"]}")
 
             # show numbers of students
-            venus.length(__FileName__)  
+            students = venus.Student("", 0)
+            students.count(__FileName__)
 
         case "6":
             print(f"{venus.COLORS["pink"]}\nGoodbye!{venus.COLORS["reset"]}")
