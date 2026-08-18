@@ -65,8 +65,9 @@ while True:
             # get student name
             student_ID = input("Enter student ID: ")
 
-            # show student information
-            venus.search(__FileName__, student_ID)
+            # search student information
+            students = venus.Student("", 0)
+            students.searchStudent(__FileName__, student_ID)
 
         case "4":
             print(f"{venus.COLORS["gray"]}\n|===| Remove Student |===|{venus.COLORS["reset"]}")
