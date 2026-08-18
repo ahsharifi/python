@@ -1,4 +1,4 @@
-class Student():
+class Student:
   def __init__(self, name: str, age: int, grade: int, major: str, status: bool):
     self.name = name
     self.age = age
@@ -48,6 +48,6 @@ product = Product("pen", 10, 10000, 1)
 
 print("[==============| Product Information |==============]")
 print(product.name)
-print(product.getInventory())
+print(product.getName())
 print(product.getPriceWithDiscount(12))
 print(product.getInventoryPrice())
