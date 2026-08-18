@@ -56,7 +56,8 @@ while True:
           print(f"{venus.COLORS["gray"]}\n|===| Students List |===|{venus.COLORS["reset"]}")
 
           # show students list
-          venus.show(__FileName__)
+          students = venus.Student("", 0)
+          students.showStudents(__FileName__)
 
         case "3":
             print(f"{venus.COLORS["gray"]}\n|===| Search Student |===|{venus.COLORS["reset"]}")

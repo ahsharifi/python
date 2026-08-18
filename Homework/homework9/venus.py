@@ -137,12 +137,7 @@ class Student(Person):
       rows = len(file.readlines())
 
     print(f"{COLORS["cyan"]}numbers of students: {rows}{COLORS["reset"]}")
-
-# show students
-def show(file_name):
-  student = Student("", 0)
-  student.showStudents(file_name)
-
+    
 # search student
 def search(file_name, ID):
   students = Student("", 0)
