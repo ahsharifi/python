@@ -80,6 +80,23 @@ class Student(Person):
     {COLORS["reset"]}"""
         )
 
+  def searchStudent(self, file_name, ID):
+    with readFile(file_name) as f:
+      for line in f:
+        student_ID = re.search(r"ID: (\d+)", line).group(1)
+        if student_ID == ID:
+          student_name = re.search(r"Name: ([^|]+)", line).group(1)
+          student_age = re.search(r"Age: (\d+)", line).group(1)
+
+          print(f"""{COLORS["cyan"]}
+  [==========| student {student_ID} |==========]
+  |---| Student name: {student_name}      
+  |---| Student age: {student_age}
+  [==========================]
+      {COLORS["reset"]}"""
+          )
+
+
 # add new student
 def add(file_name, name, age):
   student = Student(name, age)
@@ -90,22 +107,10 @@ def show(file_name):
   student = Student("", 0)
   student.showStudents(file_name)
 
-# # search student
-# def search(file_name, ID):
-#   with readFile(file_name) as f:
-#     for line in f:
-#       student_ID = re.search(r"ID: (\d+)", line).group(1)
-#       if student_ID == ID:
-#         student_name = re.search(r"Name: ([^|]+)", line).group(1)
-#         student_age = re.search(r"Age: (\d+)", line).group(1)
-
-#         print(f"""{COLORS["cyan"]}
-# [==========| student {student_ID} |==========]
-# |---| Student name: {student_name}      
-# |---| Student age: {student_age}
-# [==========================]
-#     {COLORS["reset"]}"""
-#         )
+# search student
+def search(file_name, ID):
+  student = Student("", 0)
+  student.searchStudent(file_name, ID)
 
 # # remove student
 # def remove(file_name, ID):
